@@ -1,0 +1,75 @@
+body {
+    position: relative;
+    padding-bottom: 2rem;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    font-size: 67.5%;
+    font-family: 'Raleway';
+    color: #222;
+    background-color: #222;
+    overflow-x:hidden;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: local('Raleway Regular'),
+         local('Raleway-Regular'),
+         url('fonts/Raleway-Regular.woff') format('woff'),
+         url('fonts/Raleway-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+.wrapper {
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.game-field {
+    width: 90vw;
+    height: 90vh;
+}
+
+.final-message {
+    height: 2rem;
+    text-align: center;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #BA265D;
+}
+
+.game-panel__wrapper {
+    display: flex;
+}
+
+.game-panel {
+    flex-basis: 50%;
+    padding: 2rem;
+    background-color: #ccc;
+    box-shadow: inset 0 0 2rem .5rem #333;
+    border: .1rem solid #111; 
+}
+
+.game-panel:first-child {margin-right: 1.5rem;}
+
+
+
+
+.name {
+    font-size: 1.6rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.score,
+.score:before {
+    font-size: 1.4rem;
+}
+
+.score:before {
+    content: 'Score: ';
+}
