@@ -1,6 +1,5 @@
 body {
     position: relative;
-    padding-bottom: 2rem;
     height: 100vh;
     width: 100vw;
     box-sizing: border-box;
@@ -9,6 +8,7 @@ body {
     color: #222;
     background-color: #222;
     overflow-x:hidden;
+    // transition: scale 1s ease-in-out;
 }
 
 @font-face {
@@ -21,55 +21,253 @@ body {
     font-style: normal;
 }
 
+@keyframes scale {
+    0% {
+        opacity: 0;
+        scale: 0;
+    }
+    90% {
+        opacity: 1;
+        scale: 1.1;
+    }
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes infinit {
+    0% {
+        scale: 1;
+    }
+    75% {
+        scale: 1.2;
+    }
+}
+
+
+@keyframes playerCard1 {
+    0% {
+        top: 15rem;
+        left: 4rem;
+    }
+    100% {
+        top: 6.8rem;
+        left: 40rem;
+    }
+}
+
+@keyframes playerCard2 {
+    0% {
+        top: 15rem;
+        left: 4rem;
+    }
+    100% {
+        top: 6.5rem;
+        left: 43rem;
+    }
+}
+
+@keyframes playerCard3 {
+    0% {
+        top: 15rem;
+        left: 4rem;
+    }
+    100% {
+        top: 6.2rem;
+        left: 48rem;
+    }
+}
+
+@keyframes dulerCard1 {
+    0% {
+        top: 15rem;
+        left: 4rem;
+    }
+    100% {
+        top: 25rem;
+        left: 38rem;
+    }
+}
+
+@keyframes dulerCard2 {
+    0% {
+        top: 15rem;
+        left: 4rem;
+    }
+    100% {
+        top: 24.7rem;
+        left: 44rem;
+    }
+}
+
+.card {
+    position: absolute;
+    top: 15rem;
+    left: 4rem;
+}
+
+.player__card-1 { animation: playerCard1 .6s ease-out forwards;}
+.player__card-2 { animation: playerCard2 .6s .1s ease-out forwards;}
+.player__card-3 { animation: playerCard3 .6s .1s ease-out forwards;}
+.duler__card-1 { animation: dulerCard1 .6s .1s ease-out forwards;}
+.duler__card-2 { animation: dulerCard2 .6s .1s ease-out forwards;}
+
 
 
 .wrapper {
+    position: relative;
     max-width: 70rem;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 0 2rem;
 }
 
 .game-field {
-    width: 90vw;
-    height: 90vh;
+    display: flex;
+    justify-content: space-between;
 }
 
+.final-message__wrapper {
+    position: relative;
+    max-width: 35%;
+    z-index: 100;
+    display: block;
+    padding: 4rem 3rem;
+    align-self: center;
+    background-color: #eee;
+    border-radius: .2rem;
+    box-shadow: 0 0 3rem 2rem rgba(112, 12, 47, .5);
+    animation: scale 1s ease-out;
+}
+
+
 .final-message {
-    height: 2rem;
     text-align: center;
-    font-size: 3rem;
+    font-size: 4rem;
     text-transform: uppercase;
-    color: #BA265D;
+    color: rgb(112, 12, 47);
 }
 
 .game-panel__wrapper {
+    margin: 3rem 0;
     display: flex;
+    flex-direction: column;
 }
 
 .game-panel {
-    flex-basis: 50%;
-    padding: 2rem;
-    background-color: #ccc;
-    box-shadow: inset 0 0 2rem .5rem #333;
-    border: .1rem solid #111; 
+    min-width: 28rem;
+    min-height: 15rem;
+    margin-bottom: 1rem;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: .2rem;
+    box-shadow:  0 0 .3rem 0 #ccc;
+    border: .1rem solid #ccc; 
 }
 
-.game-panel:first-child {margin-right: 1.5rem;}
+.player__cards {
+    margin-top: 1rem;
+}
 
 
-
-
-.name {
+.name,
+.score {
     font-size: 1.6rem;
     text-align: center;
     text-transform: uppercase;
+    color: #ccc;
 }
 
-.score,
-.score:before {
-    font-size: 1.4rem;
+img {
+    height: 12rem;
 }
 
-.score:before {
-    content: 'Score: ';
+img:nth-child(2) {
+    margin-left: -1rem;
+    margin-bottom: .2rem;
+}
+
+img:nth-child(3) {
+    margin-left: -2rem;
+    margin-bottom: .4rem;
+}
+
+
+.all-cards {
+    align-self: center;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+.btn__wrapper {
+    position: absolute;
+    bottom: 1.7rem;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    animation: scale .5s ease-out;
+}
+
+
+.btn {
+    display: inline-block;
+    padding: .8rem 2rem;
+    position: relative;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    border-radius: 10rem;
+    color: #ccc;
+    background-color: rgb(112, 12, 47);
+    transition: all .2s;
+    cursor: pointer;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: rgb(112, 12, 47);
+    transition: all .4s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black,.2);
+}
+
+.btn:hover:after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn__add {
+    margin-right: 2rem;
+}
+
+.btn__new {
+    z-index: 1000;
+    display: block;
+    position: absolute;
+    top: -1.8rem;
+    right: -1.8rem;
+    height: 3.6rem;
+    width: 3.6rem;
+    border-radius: 50%;
+    font-size: 2.2rem;
+    line-height: 3.5rem;
+    text-align: center;
+    vertical-align: middle;
+    background-color: rgb(112, 12, 47);
+    border: .1px solid #ccc;
+    box-shadow: 0 0 2rem 2rem rgba(112, 12, 47, .5);
+    color: #ccc;
+    animation: infinit infinite 1.5s;
+    cursor: pointer;
 }

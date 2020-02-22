@@ -6,39 +6,44 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body>
-    <div class="wrapper game-field">
+<body class="wrapper">
+    <div class="game-field">
 
-        <h1 class="final-message"></h1>
+        <div class="final-message__wrapper">
+            <h1 class="final-message"></h1>
+            <span class="btn__new">X</span>
+        </div>
+        
+        <div class="all-cards">
+            <img src="img/gray_back.png" alt="">
+        </div>
 
         <div class="game-panel__wrapper">
             <div class="game-panel game-panel__player">
-                <div class="name" id="player__name">Player</div>
-                <div class="score" id="player__score">1</div>
-                <div class="player__cards">
-                    <img class="player__card-1" src="">
-                    <img class="player__card-2" src="">
-                    <img class="player__card-3" src="">
-                </div>
+                <span class="name" id="player__name">Player: </span>
+                <span class="score" id="player__score">1</span>
+                <!-- <div class="player__cards"> -->
+                    <img class="card player__card-1" src="">
+                    <img class="card player__card-2" src="">
+                    <img class="card player__card-3" src="">
+                <!-- </div> --> 
             </div>
             
             <div class="game-panel game-panel__duler">
-                <div class="name" id="duler__name">Duler</div>
-                <div class="score" id="duler__score">2</div>
+                <span class="name" id="duler__name">Duler: </span>
+                <span class="score" id="duler__score">2</span>
                 <div class="duler__card-wrapper">
-                    <img class="duler__card-1" src="">
-                    <img class="duler__card-2" src="">
+                    <img class="card duler__card-1" src="">
+                    <img class="card duler__card-2" src="">
                 </div>
             </div>
         </div>
 
-        <div class="btn__wrapper">
-            <button class="btn__start">Start game</button>
-            <button class="btn__add">Take additional card</button>
-            <button class="btn__show">Show & Compare</button>
-            <button class="btn__new">New game</button>
-        </div>
+    </div>
 
+    <div class="btn__wrapper">
+        <button class="btn btn__add">Take additional card</button>
+        <button class="btn btn__show">Show & Compare</button>
     </div>
 
     <script src="main.js"></script>
