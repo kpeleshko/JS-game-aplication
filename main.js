@@ -71,10 +71,19 @@ let cardsAll = [
 
 newGame()
 
+
+
 function newGame() {
     playerRoundScore = 0;
     dulerRoundScore = 0;
     gamePlaying = true;
+
+    
+    document.querySelector('.all-cards').addEventListener('click', startGame);
+    document.querySelector('.btn__add').addEventListener('click', addCard);
+    document.querySelector('.btn__show').addEventListener('click', showCompareCard);
+
+    document.querySelector('.start-game').style.display = "inline-block";
     document.querySelector('.all-cards').style.display = "block";
     document.querySelector('.final-message__wrapper').style.display = "none";
     document.getElementById('player__score').textContent = "0";
@@ -88,19 +97,22 @@ function newGame() {
     document.querySelector('.player__card-3').style.display = "none";
     document.querySelector('.duler__card-1').style.display = "none";
     document.querySelector('.duler__card-2').style.display = "none";
-
-    document.querySelector('.all-cards').addEventListener('click', startGame);
 };
 
 
-document.querySelector('.all-cards').addEventListener('click', startGame);
+
 function startGame(){
+    document.querySelector('.start-game').style.display = "none";
     setTimeout(() => document.querySelector('.btn__wrapper').style.display = "inline-block", 2500);
     
     let playerCard1 = cardsAll[Math.floor(Math.random() * cardsAll.length)];
+    cardsAll.splice(cardsAll.indexOf(playerCard1), 1);
     let playerCard2 = cardsAll[Math.floor(Math.random() * cardsAll.length)];
+    cardsAll.splice(cardsAll.indexOf(playerCard2), 1);
     let dulerCard1 = cardsAll[Math.floor(Math.random() * cardsAll.length)];
+    cardsAll.splice(cardsAll.indexOf(dulerCard1), 1);
 
+    console.log(cardsAll);
     //display the img result
     document.querySelector('.player__card-1').style.display = "inline-block";
     setTimeout(() => document.querySelector('.player__card-2').style.display = "inline-block", 500);
@@ -120,24 +132,30 @@ function startGame(){
     setTimeout(() => document.querySelector('#duler__score').textContent = dulerRoundScore, 2500)
     
     document.querySelector('.all-cards').removeEventListener('click', startGame);
-    gamePlaying = false;
 }
 
-document.querySelector('.btn__add').addEventListener('click', function() {
+
+
+function addCard() {
     // random img+score
     let playerCard3 = cardsAll[Math.floor(Math.random() * cardsAll.length)];
+    cardsAll.splice(cardsAll.indexOf(playerCard3), 1);
 
     // add img and score
     document.querySelector('.player__card-3').src = playerCard3.img;
     document.querySelector('.player__card-3').style.display = "inline-block";
     playerRoundScore += playerCard3.points;
     document.querySelector('#player__score').textContent = playerRoundScore
-});
-
-document.querySelector('.btn__show').addEventListener('click', function() {
     
+    document.querySelector('.btn__add').removeEventListener('click', addCard); 
+}
+
+
+
+function showCompareCard() {
     // show diler second card
     let dulerCard2 = cardsAll[Math.floor(Math.random() * cardsAll.length)];
+    cardsAll.splice(cardsAll.indexOf(dulerCard2), 1);
     document.querySelector('.duler__card-2').src = dulerCard2.img;
     dulerRoundScore += dulerCard2.points;
     document.querySelector('#duler__score').textContent = dulerRoundScore
@@ -157,8 +175,8 @@ document.querySelector('.btn__show').addEventListener('click', function() {
     gamePlaying = false;
     document.querySelector('.btn__wrapper').style.display = "none";
     document.querySelector('.btn__new').style.display = "inline-block";
-    
-});
+}
+
 
 document.querySelector('.btn__new').addEventListener('click', function() {
     newGame()

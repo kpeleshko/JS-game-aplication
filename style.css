@@ -40,7 +40,7 @@ body {
         scale: 1;
     }
     75% {
-        scale: 1.2;
+        scale: 1.25;
     }
 }
 
@@ -52,7 +52,7 @@ body {
     }
     100% {
         top: 6.8rem;
-        left: 40rem;
+        left: 38rem;
     }
 }
 
@@ -63,7 +63,7 @@ body {
     }
     100% {
         top: 6.5rem;
-        left: 43rem;
+        left: 41rem;
     }
 }
 
@@ -74,7 +74,7 @@ body {
     }
     100% {
         top: 6.2rem;
-        left: 48rem;
+        left: 46rem;
     }
 }
 
@@ -85,7 +85,7 @@ body {
     }
     100% {
         top: 25rem;
-        left: 38rem;
+        left: 36rem;
     }
 }
 
@@ -96,11 +96,12 @@ body {
     }
     100% {
         top: 24.7rem;
-        left: 44rem;
+        left: 42rem;
     }
 }
 
 .card {
+    display: none;
     position: absolute;
     top: 15rem;
     left: 4rem;
@@ -112,9 +113,10 @@ body {
 .duler__card-1 { animation: dulerCard1 .6s .1s ease-out forwards;}
 .duler__card-2 { animation: dulerCard2 .6s .1s ease-out forwards;}
 
-
-
 .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     max-width: 70rem;
     margin: 0 auto;
@@ -122,8 +124,10 @@ body {
 }
 
 .game-field {
+    width: 70rem;
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 .final-message__wrapper {
@@ -193,14 +197,31 @@ img:nth-child(3) {
 
 
 .all-cards {
+    position: relative;
     align-self: center;
     margin-right: 2rem;
     cursor: pointer;
 }
 
+.start-game {
+    text-align: center;
+    position: absolute;
+    top: -7rem;
+    right: 1rem;
+    color: #ccc;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    animation: infinit .75s ease-out infinite;
+}
+
+.start-game::after {
+    content: U+2192;
+    color: rgb(112, 12, 47);
+}
+
 .btn__wrapper {
     position: absolute;
-    bottom: 1.7rem;
+    bottom: 3.55rem;
     left: 0;
     display: flex;
     justify-content: center;
@@ -210,9 +231,9 @@ img:nth-child(3) {
 
 .btn {
     display: inline-block;
-    padding: .8rem 2rem;
+    padding: .5rem 1.5rem;
     position: relative;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-transform: uppercase;
     text-decoration: none;
     border: none;
@@ -248,7 +269,7 @@ img:nth-child(3) {
 }
 
 .btn__add {
-    margin-right: 2rem;
+    margin-right: 1rem;
 }
 
 .btn__new {
@@ -266,8 +287,9 @@ img:nth-child(3) {
     vertical-align: middle;
     background-color: rgb(112, 12, 47);
     border: .1px solid #ccc;
-    box-shadow: 0 0 2rem 2rem rgba(112, 12, 47, .5);
+    box-shadow: 0 0 1.5rem 1.5rem rgba(112, 12, 47, .8);
     color: #ccc;
-    animation: infinit infinite 1.5s;
+    animation: infinit infinite 1s;
     cursor: pointer;
 }
+
