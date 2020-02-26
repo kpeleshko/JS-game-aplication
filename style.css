@@ -177,9 +177,7 @@ body {
     border: .1rem solid #ccc; 
 }
 
-.player__cards {
-    margin-top: 1rem;
-}
+.player__cards { margin-top: 1rem;}
 
 
 .name,
@@ -197,9 +195,7 @@ body {
     animation: scoreScale .7s ease-out infinite;
 }
 
-img {
-    height: 12rem;
-}
+img { height: 12rem;}
 
 img:nth-child(2) {
     margin-left: -1rem;
@@ -284,9 +280,7 @@ img:nth-child(3) {
     opacity: 0;
 }
 
-.btn__add {
-    margin-right: 1rem;
-}
+.btn__add { margin-right: 1rem;}
 
 .btn__new {
     z-index: 1000;

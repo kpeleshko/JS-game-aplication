@@ -51,10 +51,8 @@ let cardsAll = [
     { img: 'img/AH.png', points: 11},
     { img: 'img/AS.png', points: 11}
 ];
-
 let playerCard = [];
 let dealerCard = [];
-
 let playerRoundScore = 0;
 let dealerRoundScore = 0;
 
